@@ -6,10 +6,11 @@ import ru.hogwarts.school.model.Student;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+
 @Service
 public class StudentService extends Student {
-    private final HashMap <Long,Student> students=new HashMap<>();
-    private long count=0;
+    private final HashMap<Long, Student> students = new HashMap<>();
+    private long count = 0;
 
     public Student creatStudent(Student student) {
         student.setId(++count);
@@ -32,9 +33,11 @@ public class StudentService extends Student {
     public Student deleteStudent(Long id) {
         return students.remove(id);
     }
+
     public Collection<Student> getAllStudents() {
         return students.values();
     }
+
     public Collection<Student> findByAge(int age) {
         ArrayList<Student> result = new ArrayList<>();
         for (Student student : students.values()) {

@@ -3,9 +3,10 @@ package ru.hogwarts.school.model;
 import java.util.Objects;
 
 public class Student {
-   private Long id;
-   private String name;
+    private Long id;
+    private String name;
     private int age;
+
     public Student() {
 
     }
