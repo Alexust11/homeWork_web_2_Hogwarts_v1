@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.service.FacultyService;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Objects;
 
 
 @RestController
@@ -50,4 +53,16 @@ public class FacultyController {
         return ResponseEntity.ok(facultyService.getAllFaculties());
 
     }
+    @GetMapping
+    public ResponseEntity<Collection<Faculty>> findFaculties(@RequestParam(required = false) String color) {
+        if (color != null && !color.isBlank()) {
+            return ResponseEntity.ok(facultyService.findByColor(color));
+        }
+        return ResponseEntity.ok(Collections.emptyList());
+    }
+
+
+
+
+
 }

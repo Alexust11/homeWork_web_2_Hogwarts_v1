@@ -3,6 +3,7 @@ package ru.hogwarts.school.service;
 import org.springframework.stereotype.Service;
 import ru.hogwarts.school.model.Student;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 @Service
@@ -33,5 +34,14 @@ public class StudentService extends Student {
     }
     public Collection<Student> getAllStudents() {
         return students.values();
+    }
+    public Collection<Student> findByAge(int age) {
+        ArrayList<Student> result = new ArrayList<>();
+        for (Student student : students.values()) {
+            if (student.getAge() == age) {
+                result.add(student);
+            }
+        }
+        return result;
     }
 }
